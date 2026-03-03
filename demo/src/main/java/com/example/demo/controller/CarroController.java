@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,6 +45,11 @@ public class CarroController {
     public CarroModel atualizarPorId(@PathVariable long id, @RequestBody CarroModel carroNovo){
         return carroService.atualizarPorId(id, carroNovo);
     
+    }
+
+    @DeleteMapping("/{id}")
+    public void excluirporId(@PathVariable Long id){
+         carroService.excluirPorId(id);
     }
 }
 

@@ -40,6 +40,17 @@ public class CarroService {
 
     }
 
+    public void excluirPorId(Long id){
+        Optional<CarroModel> carrOptional = carroRepository.findById(id);
+
+        if(carrOptional.isPresent()){
+            carroRepository.deleteById(id);
+        } else{
+            throw new RuntimeException("Carro não encontrado");
+        }
+
+    }
+
 
 
     
