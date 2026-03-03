@@ -1,11 +1,11 @@
 package com.example.demo.service;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.CarroModel;
 import com.example.demo.repository.CarroRepository;
-
 @Service
 public class CarroService {
     
@@ -22,6 +22,12 @@ public class CarroService {
     public CarroModel salvar(CarroModel carro){
         return carroRepository.save(carro);
     }
+
+     public Optional<CarroModel> listarPorId(Long id) {
+        return carroRepository.findById(id);
+    }
+
+
 
     
 }
