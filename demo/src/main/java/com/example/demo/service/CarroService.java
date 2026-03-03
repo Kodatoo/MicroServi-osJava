@@ -27,6 +27,19 @@ public class CarroService {
         return carroRepository.findById(id);
     }
 
+    public CarroModel atualizarPorId(Long id, CarroModel dadosNovos){
+        CarroModel carroExistente = carroRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Carro não encontrado"));
+
+
+        carroExistente.setMarca(dadosNovos.getMarca());
+        carroExistente.setAno(dadosNovos.getAno());
+        carroExistente.setModelo(dadosNovos.getModelo());
+
+        return carroRepository.save(carroExistente);
+
+    }
+
 
 
     
